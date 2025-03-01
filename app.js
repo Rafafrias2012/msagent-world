@@ -61,10 +61,7 @@ function login() {
 }
 
 function connectSocket(nickname, room) {
-    socket = io('https://bonzi.nigger.email', {
-        transports: ['websocket'],
-        forceNew: true
-    });
+    socket = io('https://bonzi.nigger.email')
     
     // Register login
     let self = {
