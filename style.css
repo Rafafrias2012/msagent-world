@@ -1,0 +1,281 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #008080;
+    font-family: "MS Sans Serif", Arial, sans-serif;
+    user-select: none;
+}
+
+/* Login Screen */
+#login_screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+}
+
+/* Boot Screen */
+#boot_screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.boot-content {
+    text-align: center;
+}
+
+.win-logo {
+    width: 200px;
+    height: 120px;
+    margin: 0 auto 20px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88"><path fill="white" d="M0 12.402l35.687-4.86.016 34.423-35.67.203zm35.67 33.529l.028 34.453L.028 75.48.026 45.7zm4.326-39.025L87.314 0v41.527l-47.318.376zm47.329 39.349l-.011 41.34-47.318-6.678-.066-34.739z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.boot-progress {
+    width: 300px;
+    height: 20px;
+    background-color: #333;
+    margin: 20px auto;
+    border: 2px solid white;
+}
+
+.boot-bar {
+    width: 0%;
+    height: 100%;
+    background-color: white;
+    animation: progress 3s linear forwards;
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.boot-text {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Main App */
+#agent_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 40px);
+    overflow: hidden;
+}
+
+.agent {
+    position: absolute;
+    cursor: move;
+}
+
+.agent-nametag {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2px 5px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.speech-bubble {
+    position: absolute;
+    background: #ffffe7;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    max-width: 200px;
+    word-wrap: break-word;
+    pointer-events: none;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: #ffffe7 transparent;
+}
+
+/* Taskbar */
+#taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+#taskbar .window-body {
+    display: flex;
+    padding: 5px;
+}
+
+#taskbar .field-row {
+    flex: 1;
+    display: flex;
+}
+
+#send_message {
+    flex: 1;
+    margin-right: 5px;
+}
+
+/* Room Info */
+#room_info {
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
+    width: 200px;
+}
+
+/* Chat Log Window */
+#chat_log_window {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 400px;
+    height: 300px;
+    z-index: 1000;
+}
+
+#chat_log {
+    height: 240px;
+    overflow-y: auto;
+    border: 1px inset #dfdfdf;
+    background: white;
+    padding: 5px;
+}
+
+.chat-entry {
+    margin-bottom: 5px;
+    border-left: 4px solid #c0c0c0;
+    padding-left: 5px;
+}
+
+.chat-entry.purple {
+    border-left-color: purple;
+}
+
+/* Context Menu */
+.context-menu {
+    position: absolute;
+    background: #c0c0c0;
+    border: 1px outset #dfdfdf;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.context-menu-item {
+    padding: 5px 10px;
+    cursor: default;
+}
+
+.context-menu-item:hover {
+    background-color: #000080;
+    color: white;
+}
+
+.context-menu-item.disabled {
+    color: #808080;
+    cursor: not-allowed;
+}
+
+.context-menu-separator {
+    border-top: 1px solid #808080;
+    margin: 2px 0;
+}
+
+/* MS Window */
+.ms-window {
+    position: absolute;
+    background: #c0c0c0;
+    border: 1px outset #dfdfdf;
+    min-width: 200px;
+    min-height: 100px;
+    z-index: 900;
+}
+
+.ms-window-title {
+    background: #000080;
+    color: white;
+    padding: 2px 5px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    cursor: move;
+}
+
+.ms-window-close {
+    cursor: pointer;
+}
+
+.ms-window-content {
+    padding: 10px;
+}
+
+.ms-window-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.welcome-window {
+    width: 350px;
+    z-index: 1001;
+}
+
+.welcome-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.welcome-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.welcome-logo {
+    margin: 10px 0;
+}
+
+.welcome-text {
+    margin: 15px 0;
+    text-align: left;
+}
+
+/* Mobile-specific */
+@media (max-width: 768px) {
+    #taskbar .window-body {
+        flex-direction: column;
+    }
+    
+    #room_info {
+        width: 150px;
+        font-size: 0.8em;
+    }
+    
+    .chat-log-window {
+        width: 300px;
+    }
+}
+
