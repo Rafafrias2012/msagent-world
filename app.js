@@ -61,7 +61,7 @@ function login() {
 }
 
 function connectSocket(nickname, room) {
-    socket = io('https://bonziworld.org/', {
+    socket = io('https://bonzi.nigger.email', {
         transports: ['websocket'],
         forceNew: true
     });
